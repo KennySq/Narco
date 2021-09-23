@@ -15,6 +15,14 @@ namespace NARCO
 		mTexManager.AddTexture2D(new D3DTexture2D(device, DXGI_FORMAT_R32G32B32A32_FLOAT, D3D11_BIND_RENDER_TARGET, D3D11_USAGE_DEFAULT, width, height, 0));
 		mTexManager.AddDepthStencil(new D3DDepthStencil(device, D3D11_BIND_SHADER_RESOURCE, D3D11_USAGE_DEFAULT, width, height, 0));
 
+
+		// 테스트 코드 영역입니다.
+		MeshLoader loader(device);
+
+		loader.SetPath("C:/Users/odess/Desktop/Project/Narco/x64/Debug/resources/shiba/shiba.fbx");
+		loader.Load();
+
+		Mesh* mesh_shiba = loader.ConvertMesh();
 		
 	}
 	void Narco_Core::Init()

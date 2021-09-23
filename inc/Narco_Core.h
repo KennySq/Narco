@@ -5,6 +5,8 @@
 #include"D3DHardware.h"
 #include"D3DDisplay.h"
 
+#include"MeshLoader.h"
+
 #include"Narco_TextureManager.h"
 
 #include<Windows.h>
