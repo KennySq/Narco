@@ -18,7 +18,8 @@ namespace NARCO
 		Scene(const char* name);
 		~Scene();
 
-
+		void AddGameObject(GameObject* gameObject);
+		GameObject* GetGameObject(InstanceID iid) const;
 
 	private:
 

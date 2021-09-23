@@ -13,6 +13,13 @@ namespace NARCO
 		friend Scene;
 
 	public:
+		GameObject();
+		GameObject(const char* name);
+		GameObject(const GameObject& gameObject);
+		GameObject(const GameObject&& gameObject);
+
+		~GameObject();
+
 		template<class _Comp>
 		_Comp* GetComponent()
 		{
@@ -32,8 +39,16 @@ namespace NARCO
 		template<class _Comp>
 		void AddComponent()
 		{
-			type_info typeInfo = typeid(_Comp);
+			if (this == nullptr)
+			{
+				ExceptionError(E_INVALIDARG, "This gameObject is not valid.");
+				throw std::invalid_argument("This gameObject is not valid.");
+			}
+
+			const type_info& typeInfo = typeid(_Comp);
 			size_t compHash = typeInfo.hash_code();
+
+			
 
 			auto result = mComponents.find(compHash);
 
@@ -43,13 +58,15 @@ namespace NARCO
 				throw std::invalid_argument("This component is already exist.");
 			}
 
-			Component* newComp = new _Comp();
+			Component* newComp = new _Comp(); // preventing non-inherited object creation.
+
 			mComponents.insert_or_assign(compHash, newComp);
 
 			return;
 		}
 
 	private:
+		static long long mInstanceIDCount;
 
 		void start();
 		void update(float delta);

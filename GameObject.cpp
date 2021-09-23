@@ -2,6 +2,30 @@
 
 namespace NARCO
 {
+	long long GameObject::mInstanceIDCount = 0;
+
+	GameObject::GameObject()
+		: mInstanceID(mInstanceIDCount++), mName(std::string("New GameObject ") + std::to_string(mInstanceID))
+	{
+
+	}
+	GameObject::GameObject(const char* name)
+		: mInstanceID(mInstanceIDCount++), mName(name)
+	{
+	}
+	GameObject::GameObject(const GameObject& gameObject)
+		: mInstanceID(mInstanceIDCount++)
+	{
+
+
+	}
+	GameObject::GameObject(const GameObject&& gameObject)
+		: mInstanceID(mInstanceIDCount++)
+	{
+	}
+	GameObject::~GameObject()
+	{
+	}
 	void GameObject::start()
 	{
 		for (auto c : mComponents)

@@ -6,8 +6,11 @@
 #include"D3DDisplay.h"
 
 #include"MeshLoader.h"
+#include"Scene.h"
 
 #include"Narco_TextureManager.h"
+
+#include"Renderer.h"
 
 #include<Windows.h>
 
@@ -28,6 +31,7 @@ namespace NARCO
 	private:
 		void clearScreen();
 
+		Scene* mSelectedScene;
 
 		HWND mWindowHandle;
 		HINSTANCE mHandleInstance;

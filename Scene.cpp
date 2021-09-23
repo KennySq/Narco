@@ -9,6 +9,30 @@ namespace NARCO
 	Scene::~Scene()
 	{
 	}
+	void Scene::AddGameObject(GameObject* gameObject)
+	{
+		InstanceID id = gameObject->mInstanceID;
+
+		if (mGameObjects.find(id) != mGameObjects.end())
+		{
+			ExceptionWarning(E_INVALIDARG, "This gameObject is already in the scene.");
+			return;
+		}
+
+		mGameObjects.insert_or_assign(id, gameObject);
+
+		return;
+
+	}
+	GameObject* Scene::GetGameObject(InstanceID iid) const
+	{
+		if (mGameObjects.find(iid) != mGameObjects.end())
+		{
+			return mGameObjects.find(iid)->second;
+		}
+
+		return nullptr;
+	}
 	void Scene::start()
 	{
 		for (auto i : mGameObjects)

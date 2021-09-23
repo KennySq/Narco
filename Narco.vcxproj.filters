@@ -33,9 +33,6 @@
     <ClInclude Include="inc\Narco_TextureManager.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="inc\Narco_Scene.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
     <ClInclude Include="inc\Component.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>

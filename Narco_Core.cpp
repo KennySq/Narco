@@ -19,30 +19,37 @@ namespace NARCO
 		// 테스트 코드 영역입니다.
 		MeshLoader loader(device);
 
-		loader.SetPath("C:/Users/odess/Desktop/Project/Narco/x64/Debug/resources/shiba/shiba.fbx");
-		loader.Load();
+		//loader.SetPath("C:/Users/odess/Desktop/Project/Narco/x64/Debug/resources/shiba/shiba.fbx");
+		//loader.Load();
 
 		Mesh* mesh_shiba = loader.ConvertMesh();
-		
+
+		mSelectedScene = new Scene("Sample Scene");
 	}
 	void Narco_Core::Init()
 	{
+		mSelectedScene->start();
+
 	}
 	void Narco_Core::Update(float delta)
 	{
 		static ID3D11DeviceContext* context = mHardware->GetImmediateContext();
 
 		clearScreen();
+		mSelectedScene->update(delta);
 
 	}
 	void Narco_Core::Render(float delta)
 	{
-
+		
+		mSelectedScene->render(delta);
 		mDisplay->Present();
-
+		
 	}
 	void Narco_Core::Release()
 	{
+		mSelectedScene->release();
+
 		delete mHardware;
 		delete mDisplay;
 	}
