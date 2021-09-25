@@ -26,6 +26,8 @@ namespace NARCO
 
 		std::string mName;
 
+		GameObject* mRoot;
+
 		ComponentID mComponentID;
 	};
 }

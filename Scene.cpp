@@ -19,6 +19,7 @@ namespace NARCO
 			return;
 		}
 
+		gameObject->mScene = this;
 		mGameObjects.insert_or_assign(id, gameObject);
 
 		return;

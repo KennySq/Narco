@@ -146,32 +146,34 @@
     <ClInclude Include="framework.h" />
     <ClInclude Include="inc\Component.h" />
     <ClInclude Include="inc\GameObject.h" />
+    <ClInclude Include="inc\GBuffer.h" />
     <ClInclude Include="inc\IFileSystem.h" />
     <ClInclude Include="inc\Material.h" />
     <ClInclude Include="inc\Mesh.h" />
     <ClInclude Include="inc\MeshLoader.h" />
     <ClInclude Include="inc\Narco_Common.h" />
     <ClInclude Include="inc\Narco_Core.h" />
-    <ClInclude Include="inc\Narco_TextureManager.h" />
     <ClInclude Include="inc\Narco_Scene.h" />
     <ClInclude Include="inc\Renderer.h" />
     <ClInclude Include="inc\IRenderPipeline.h" />
     <ClInclude Include="inc\Scene.h" />
     <ClInclude Include="inc\Shader.h" />
+    <ClInclude Include="inc\Trasnform.h" />
     <ClInclude Include="Resource.h" />
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Component.cpp" />
     <ClCompile Include="GameObject.cpp" />
+    <ClCompile Include="GBuffer.cpp" />
     <ClCompile Include="Mesh.cpp" />
     <ClCompile Include="MeshLoader.cpp" />
     <ClCompile Include="Narco_Core.cpp" />
     <ClCompile Include="Narco.cpp" />
-    <ClCompile Include="Narco_TextureManager.cpp" />
     <ClCompile Include="Renderer.cpp" />
     <ClCompile Include="Scene.cpp" />
     <ClCompile Include="Shader.cpp" />
+    <ClCompile Include="Trasnform.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Narco.rc" />

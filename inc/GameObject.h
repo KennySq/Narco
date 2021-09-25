@@ -2,6 +2,7 @@
 #include"Common.h"
 #include"D3DUtil.h"
 #include"Component.h"
+#include"Trasnform.h"
 
 namespace NARCO
 {
@@ -60,6 +61,7 @@ namespace NARCO
 
 			Component* newComp = new _Comp(); // preventing non-inherited object creation.
 
+			newComp->mRoot = this;
 			mComponents.insert_or_assign(compHash, newComp);
 
 			return;
@@ -76,6 +78,8 @@ namespace NARCO
 		std::string mName;
 		std::map<ComponentID, Component*> mComponents;
 		InstanceID mInstanceID;
+
+		Scene* mScene;
 
 		GameObject* mRoot;
 		GameObject* mParent;

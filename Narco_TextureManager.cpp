@@ -2,7 +2,7 @@
 
 namespace NARCO
 {
-	void Narco_TextureManager::AddTexture2D(D3DTexture2D* p)
+	__declspec(deprecated) void Narco_TextureManager::AddTexture2D(D3DTexture2D* p)
 	{
 		if (p == nullptr)
 		{
@@ -10,9 +10,18 @@ namespace NARCO
 			return;
 		}
 
+		unsigned int bindFlag = p->GetBindFlags();
+
+		if (bindFlag & D3D11_BIND_RENDER_TARGET)
+		{
+			auto rtv = p->GetRenderTarget();
+
+			mRenderTargets.emplace_back(rtv);
+		}
+
 		mListTexture2D.emplace_back(p);
 	}
-	void Narco_TextureManager::AddDepthStencil(D3DDepthStencil* p)
+	__declspec(deprecated) void Narco_TextureManager::AddDepthStencil(D3DDepthStencil* p)
 	{
 		if (p == nullptr)
 		{
@@ -24,7 +33,7 @@ namespace NARCO
 
 	}
 
-	D3DTexture2D* Narco_TextureManager::GetTexture2D(unsigned int index)
+	__declspec(deprecated) D3DTexture2D* Narco_TextureManager::GetTexture2D(unsigned int index)
 	{
 		if (index >= mListTexture2D.size() || index < 0)
 		{
@@ -33,7 +42,7 @@ namespace NARCO
 		}
 		return mListTexture2D[index];
 	}
-	D3DDepthStencil* Narco_TextureManager::GetDepthStencil(unsigned int index)
+	__declspec(deprecated) D3DDepthStencil* Narco_TextureManager::GetDepthStencil(unsigned int index)
 	{
 		if (index >= mListDepthStencils.size() || index < 0)
 		{

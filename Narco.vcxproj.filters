@@ -30,9 +30,6 @@
     <ClInclude Include="inc\Narco_Core.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="inc\Narco_TextureManager.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
     <ClInclude Include="inc\Component.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
@@ -63,15 +60,21 @@
     <ClInclude Include="inc\IRenderPipeline.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
+    <ClInclude Include="inc\Narco_Scene.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\Trasnform.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\GBuffer.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Narco.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="Narco_Core.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
-    <ClCompile Include="Narco_TextureManager.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="Component.cpp">
@@ -93,6 +96,12 @@
       <Filter>소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="Shader.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Trasnform.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="GBuffer.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>

@@ -29,6 +29,12 @@ namespace NARCO
 		SHADER_COMPUTE = 0, // Independent
 	};
 
+	static constexpr unsigned int MODEL_5_IN_T_REGISTER = 128;
+	static constexpr unsigned int MODEL_5_OUT_T_REGISTER = 8;
+	static constexpr unsigned int MODEL_5_IN_B_REGISTER = 15;
+	static constexpr unsigned int MODEL_5_IN_S_REGISTER = 16;
+	static constexpr unsigned int MODEL_5_OUT_O_REGISTER = 32;
+
 	class Shader
 	{
 	public:
@@ -43,11 +49,33 @@ namespace NARCO
 		ID3D11HullShader* GetHS() const { return mHull.Get(); }
 		ID3D11PixelShader* GetPS() const { return mPixel.Get(); }
 
+		ID3D11ShaderResourceView* const * GetVertexSRV() const { return mVertexShaderResources.data(); }
+
 		void Release();
 	private:
 		eShaderFlag mFlags;
 
 		std::string mPath;
+
+		std::vector<ID3D11Buffer*> mVertexBuffers;
+		std::vector<ID3D11Buffer*> mGeometryBuffers;
+		std::vector<ID3D11Buffer*> mDomainBuffers;
+		std::vector<ID3D11Buffer*> mHullBuffers;
+		std::vector<ID3D11Buffer*> mPixelBuffers;
+		
+		std::vector<ID3D11ShaderResourceView*> mVertexShaderResources;
+		std::vector<ID3D11ShaderResourceView*> mGeometryShaderResources;
+		std::vector<ID3D11ShaderResourceView*> mDomainShaderResources;
+		std::vector<ID3D11ShaderResourceView*> mHullShaderResources;
+		std::vector<ID3D11ShaderResourceView*> mPixelShaderResources;
+
+		std::vector<ID3D11RenderTargetView*> mPixelRenderTargets;
+
+		std::vector<ID3D11UnorderedAccessView*> mVertexUnorderedAccess;
+		std::vector<ID3D11UnorderedAccessView*> mGeometryUnorderedAccess;
+		std::vector<ID3D11UnorderedAccessView*> mDomainUnorderedAccess;
+		std::vector<ID3D11UnorderedAccessView*> mHullUnorderedAccess;
+		std::vector<ID3D11UnorderedAccessView*> mPixelUnorderedAccess;
 
 		ComPtr<ID3D11VertexShader> mVertex = nullptr;
 		ComPtr<ID3D11GeometryShader> mGeometry = nullptr;

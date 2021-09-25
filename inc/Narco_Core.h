@@ -8,7 +8,7 @@
 #include"MeshLoader.h"
 #include"Scene.h"
 
-#include"Narco_TextureManager.h"
+#include"GBuffer.h"
 
 #include"Renderer.h"
 
@@ -39,11 +39,10 @@ namespace NARCO
 		D3DHardware* mHardware;
 		D3DDisplay* mDisplay;
 
-		Narco_TextureManager mTexManager;
-		
+		std::vector<D3DTexture2D*> mGbuffer;
+		D3DDepthStencil* mDepth;
 
-
-
+		GBuffer* mGBuffer;
 	};
 
 }

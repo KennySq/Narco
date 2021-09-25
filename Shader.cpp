@@ -3,9 +3,24 @@
 namespace NARCO
 {
 	Shader::Shader(const char* path, unsigned int flags)
-		: mPath(path), mFlags((eShaderFlag)flags)
+		: mPath(path), mFlags((eShaderFlag)flags),
+		mVertexShaderResources(MODEL_5_IN_T_REGISTER),
+		mVertexBuffers(MODEL_5_IN_B_REGISTER),
+		mVertexUnorderedAccess(MODEL_5_OUT_O_REGISTER),
+		mGeometryShaderResources(MODEL_5_IN_T_REGISTER),
+		mGeometryBuffers(MODEL_5_IN_B_REGISTER),
+		mGeometryUnorderedAccess(MODEL_5_OUT_O_REGISTER),
+		mDomainShaderResources(MODEL_5_IN_T_REGISTER),
+		mDomainBuffers(MODEL_5_IN_B_REGISTER),
+		mDomainUnorderedAccess(MODEL_5_OUT_O_REGISTER),
+		mHullShaderResources(MODEL_5_IN_T_REGISTER),
+		mHullBuffers(MODEL_5_IN_B_REGISTER),
+		mHullUnorderedAccess(MODEL_5_OUT_O_REGISTER),
+		mPixelShaderResources(MODEL_5_IN_T_REGISTER),
+		mPixelRenderTargets(MODEL_5_OUT_T_REGISTER),
+		mPixelUnorderedAccess(MODEL_5_OUT_T_REGISTER)
 	{
-
+		
 	}
 	Shader::~Shader()
 	{

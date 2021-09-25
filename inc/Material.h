@@ -12,12 +12,16 @@ namespace NARCO
 		Material();
 		~Material();
 
+		const Shader* GetShader() const { return mShader; }
+		const std::string& GetPath() const { return mPath; }
+		
+		ID3D11RasterizerState* GetRasterizerState() const { return mRasterState.Get(); }
+		ID3D11DepthStencilState* GetDepthStencilState() const { return mDepthState.Get(); }
+
 	private:
 
 		ComPtr<ID3D11RasterizerState> mRasterState;
 		ComPtr<ID3D11DepthStencilState> mDepthState;
-	//	ComPtr<ID3D11Buffer>
-		//ComPtr<ID3D11ShaderResourceView> mShaderResources;
 
 		std::string mPath;
 		Shader* mShader;

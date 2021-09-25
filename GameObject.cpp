@@ -7,11 +7,13 @@ namespace NARCO
 	GameObject::GameObject()
 		: mInstanceID(mInstanceIDCount++), mName(std::string("New GameObject ") + std::to_string(mInstanceID))
 	{
-
+		AddComponent<Transform>();
 	}
 	GameObject::GameObject(const char* name)
 		: mInstanceID(mInstanceIDCount++), mName(name)
 	{
+		AddComponent<Transform>();
+
 	}
 	GameObject::GameObject(const GameObject& gameObject)
 		: mInstanceID(mInstanceIDCount++)
